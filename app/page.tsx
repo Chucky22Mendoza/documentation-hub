@@ -1,5 +1,6 @@
 import { getAllProjectsMetadata } from '@/lib/docs';
 import { ProjectList } from '@/components/project-list';
+import { Logo } from '@/components/logo';
 
 export default async function HomePage() {
   const projects = await getAllProjectsMetadata();
@@ -8,8 +9,13 @@ export default async function HomePage() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="max-w-screen-2xl mx-auto flex h-16 items-center px-6">
-          <div className="mr-6 flex items-center space-x-2 font-bold">
-            Documentation Hub
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Logo className="h-6 w-6 text-primary" />
+            </div>
+            <div className="font-bold text-xl tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Documentation Hub
+            </div>
           </div>
         </div>
       </header>
