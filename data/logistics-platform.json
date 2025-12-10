@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "title": "Logistics Platform",
+    "description": "Complete documentation for the Logistics Platform, including architecture, trip management, and entity modules.",
+    "type": "FrontEnd",
+    "tags": ["React", "Typescript", "Zustand"]
+  },
+  "pages": [
+    {
+      "title": "Overview",
+      "purpose": "General introduction to the trip management system and its purpose and main capabilities",
+      "references": [
+        "src/features/trips/TripManager.tsx",
+        "src/core/api/routes.ts"
+      ],
+      "page_notes": [
+        {
+          "title": "Introduction",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h2>Core Features</h2><ul><li>Real-time tracking of logistics assets</li><li>Comprehensive trip management workflows</li><li>Risk assessment powered by AI</li></ul><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+        },
+        {
+          "title": "Module Breakdown",
+          "content": "<p>Below is a breakdown of the key modules involved in this overview.</p><ul><li><strong>Trip Engine</strong>: Handles state transitions.</li><li><strong>Monitoring Service</strong>: Polls GPS data.</li></ul>"
+        }
+      ]
+    },
+    {
+      "title": "System Architecture",
+      "purpose": "Description of the overall architecture patterns, layers, and design decisions of the system",
+      "references": [
+        "docs/architecture/diagrams/system-overview.png",
+        "src/infrastructure/db/schema.prisma"
+      ],
+      "page_notes": [
+        {
+          "title": "High-level Design",
+          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Client -> API Gateway -> Service Mesh -> Microservices -> Database"
+        },
+        {
+            "title": "Microservices Integration",
+            "content": "<p>The system is composed of multiple microservices communicating via gRPC and REST.</p>"
+        }
+      ]
+    },
+    {
+      "title": "Domain Model",
+      "purpose": "Detailed explanation of business entities (Trips, Vehicles, Routes, etc.), their relationships and lifecycle",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+        }
+      ]
+    },
+    {
+      "title": "UI Component Architecture",
+      "purpose": "Description of UI patterns, component hierarchy, and design system principles",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        }
+      ]
+    },
+    {
+      "title": "State Management",
+      "purpose": "Explanation of the dual state management approach using Zustand and React Context",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]
+    },
+    {
+      "title": "Data Access and Repository Pattern",
+      "purpose": "Documentation of the repository pattern, API communication, and authentication flow",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    },
+    {
+      "title": "External Integrations",
+      "purpose": "Description of integrations with HERE Maps, Sofia AI, and backend services",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+        }
+      ]
+    },
+    {
+      "title": "Trip Management System",
+      "purpose": "Complete documentation of the trip management functionality, the most critical system in the application",
+      "references": [
+          "src/domains/trip/TripService.ts"
+      ],
+      "page_notes": [
+        {
+            "title": "Core Logic",
+          "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        },
+        {
+            "title": "State Machine",
+            "content": "<p>The trip state machine handles transitions from Draft -> Scheduled -> Active -> Completed.</p>"
+        }
+      ]
+    },
+    {
+      "title": "Trip Lifecycle and State Management",
+      "purpose": "Detailed explanation of trip state transitions, state machine, and lifecycle rules",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        }
+      ]
+    },
+    {
+      "title": "Trip Details View",
+      "purpose": "Documentation of the trip details UI component, its features and interactions",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+        }
+      ]
+    },
+    {
+      "title": "Trip Creation Flow",
+      "purpose": "Step-by-step documentation of the trip creation process, including Sofia recommendations",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        }
+      ]
+    },
+    {
+      "title": "Trip Update Capabilities",
+      "purpose": "Documentation of trip update capabilities, validation rules and update flows",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+        }
+      ]
+    },
+    {
+      "title": "Trip List and Sidebar",
+      "purpose": "Documentation of the trip navigation interface, filtering, search and card display patterns",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        }
+      ]
+    },
+    {
+      "title": "Risk Evaluation System",
+      "purpose": "Detailed documentation of risk calculation, visualization and integration with Sofia AI",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus."
+        }
+      ]
+    },
+    {
+      "title": "Real-time Monitoring",
+      "purpose": "Documentation of real-time tracking, location updates and survey mechanisms",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+        }
+      ]
+    },
+    {
+      "title": "UI Component Library",
+      "purpose": "Complete documentation of reusable UI components, patterns and style system",
+      "page_notes": [
+        {
+          "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        }
+      ]
+    },
+    {
+      "title": "Modal System",
+      "purpose": "Documentation of CenterModal, LateralModal and specialized modal implementations",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
+    },
+    {
+      "title": "Table System",
+      "purpose": "Documentation of the generic table system used in entity management screens",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]
+    },
+    {
+      "title": "Card Components",
+      "purpose": "Documentation of the Card and CardExtended components for trip visualization",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      ]
+    },
+    {
+      "title": "Form Components and Validation",
+      "purpose": "Documentation of form inputs, validation patterns, and user input handling",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    },
+    {
+      "title": "Style System and Design Patterns",
+      "purpose": "Documentation of SCSS module patterns, responsive design, and visual design system",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+        }
+      ]
+    },
+    {
+      "title": "Entity Management Modules",
+      "purpose": "Documentation of CRUD operations for non-trip entities: vehicles, routes, containers, operators, devices, companies",
+      "page_notes": [
+        {
+          "content": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+        }
+      ]
+    },
+    {
+      "title": "Vehicle Management",
+      "purpose": "Documentation of vehicle management, operators and devices",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        }
+      ]
+    },
+    {
+      "title": "Route Management",
+      "purpose": "Documentation of route creation, editing, geofence management and polyline handling",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        }
+      ]
+    },
+    {
+      "title": "Container Management",
+      "purpose": "Documentation of container management",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+        }
+      ]
+    },
+    {
+      "title": "Company and Account Management",
+      "purpose": "Documentation of company hierarchy, factory locations and account management",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        }
+      ]
+    },
+    {
+      "title": "License and Protection Management",
+      "purpose": "Documentation of license levels, assignment, purchase flow and protection capabilities",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+        }
+      ]
+    },
+    {
+      "title": "State Management Deep Dive",
+      "purpose": "Detailed documentation of all state management patterns, stores and contexts",
+      "page_notes": [
+        {
+          "content": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
+        }
+      ]
+    },
+    {
+      "title": "Zustand Store System",
+      "purpose": "Complete documentation of all Zustand stores, their purpose and usage patterns",
+      "parent": "State Management Deep Dive",
+      "page_notes": [
+        {
+          "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
+        }
+      ]
+    },
+    {
+      "title": "React Context System",
+      "purpose": "Documentation of React contexts specific to the domain and their access patterns",
+      "parent": "State Management Deep Dive",
+      "page_notes": [
+        {
+          "content": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+        }
+      ]
+    }
+  ]
+}

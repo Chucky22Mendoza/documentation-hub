@@ -1,0 +1,298 @@
+{
+  "pages": [
+    {
+      "title": "Overview",
+      "purpose": "High-level introduction to the trip management and logistics monitoring system, its purpose, and core capabilities",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "System Architecture",
+      "purpose": "Comprehensive overview of the system's architectural patterns, layers, and design decisions",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Domain Model",
+      "purpose": "Detailed explanation of business entities (Trips, Vehicles, Routes, etc.), their relationships, and lifecycle",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "UI Component Architecture",
+      "purpose": "Overview of UI patterns, component hierarchy, and design system principles",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "State Management Strategy",
+      "purpose": "Explanation of the dual state management approach using Zustand and React Context",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Data Access and Repository Pattern",
+      "purpose": "Documentation of the repository pattern, API communication, and authentication flow",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "External Integrations",
+      "purpose": "Overview of integrations with HERE Maps, Sofia AI, and backend services",
+      "parent": "System Architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Trip Management System",
+      "purpose": "Comprehensive documentation of the core trip management functionality, the most critical system in the application",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Trip Lifecycle and Status Management",
+      "purpose": "Detailed explanation of trip status transitions, state machine, and lifecycle rules",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Trip Details View",
+      "purpose": "Documentation of the trip details UI component, its features, and interactions",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Trip Creation Flow",
+      "purpose": "Step-by-step documentation of the trip creation process, including Sofia recommendations",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Trip Editing",
+      "purpose": "Documentation of trip modification capabilities, validation rules, and update workflows",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Trip List and Sidebar",
+      "purpose": "Documentation of the trip browsing interface, filtering, search, and card display patterns",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Risk Assessment System",
+      "purpose": "Detailed documentation of risk calculation, display, and Sofia AI integration",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Real-time Monitoring",
+      "purpose": "Documentation of live trip tracking, location updates, and polling mechanisms",
+      "parent": "Trip Management System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "UI Component Library",
+      "purpose": "Comprehensive documentation of reusable UI components, patterns, and styling system",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Modal System",
+      "purpose": "Documentation of CenterModal, LateralModal, and specialized modal implementations",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Table Components",
+      "purpose": "Documentation of the generic table system used across entity management screens",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Card Components",
+      "purpose": "Documentation of Card and CardExtended components for trip display",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Form Components and Validation",
+      "purpose": "Documentation of form inputs, validation patterns, and user input handling",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Styling System and Design Patterns",
+      "purpose": "Documentation of SCSS module patterns, responsive design, and visual design system",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Entity Management Modules",
+      "purpose": "Documentation of CRUD operations for non-trip entities: vehicles, routes, containers, operators, devices, companies",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Fleet Management",
+      "purpose": "Documentation of vehicle, operator, and device management functionality",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Route Management",
+      "purpose": "Documentation of route creation, editing, geofence management, and polyline handling",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Container Management",
+      "purpose": "Documentation of container tracking and management functionality",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Company and Account Management",
+      "purpose": "Documentation of company hierarchy, factory locations, and account administration",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "License and Protection Management",
+      "purpose": "Documentation of license levels, assignment, purchase flow, and protection capabilities",
+      "parent": "Entity Management Modules",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "State Management Deep Dive",
+      "purpose": "Detailed documentation of all state management patterns, stores, and contexts",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Zustand Store System",
+      "purpose": "Comprehensive documentation of all Zustand stores, their purpose, and usage patterns",
+      "parent": "State Management Deep Dive",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "React Context System",
+      "purpose": "Documentation of domain-specific React contexts and their access patterns",
+      "parent": "State Management Deep Dive",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
