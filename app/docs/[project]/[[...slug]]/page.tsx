@@ -1,9 +1,14 @@
-import { getProjectData, buildDocTree, findNodeByPath, flattenTree, PageNote } from '@/lib/docs';
+import { getProjectData } from '@/app/actions';
+import { buildDocTree, findNodeByPath, flattenTree } from '@/lib/docs';
 import { notFound, redirect } from 'next/navigation';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { FileCode, Link as LinkIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { ProjectActions } from '@/components/project-actions';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 export default async function DocPage({
   params
@@ -23,6 +28,9 @@ export default async function DocPage({
     return (
       <div className="p-8">
         <h1 className="text-2xl font-bold">Page of documentation not found</h1>
+        <div className="mt-4">
+          <ProjectActions slug={params.project} />
+        </div>
       </div>
     );
   }
@@ -36,6 +44,9 @@ export default async function DocPage({
   return (
     <div className="xl:grid xl:grid-cols-[1fr_250px] gap-10 px-4 md:px-0 max-w-full">
       <div className="min-w-0 mx-auto w-full">
+        <div className="mb-4 flex justify-end border-b pb-4">
+          <ProjectActions slug={params.project} />
+        </div>
         <div className="mb-8 space-y-4">
           <h1 id="overview" className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl">
             {node.title}
@@ -61,7 +72,11 @@ export default async function DocPage({
                 </h3>
               )}
               {note.content ? (
-                <div dangerouslySetInnerHTML={{ __html: note.content }} />
+                <div className="markdown-content">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                    {note.content}
+                  </ReactMarkdown>
+                </div>
               ) : (
                 <p className="text-muted-foreground italic text-sm border-l-2 pl-4">[Content of {node.title}]</p>
               )}
@@ -78,10 +93,16 @@ export default async function DocPage({
             </h3>
             <div className="grid gap-3">
               {node.references.map((ref, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 rounded-lg border bg-card/50 hover:bg-card hover:border-primary/50 transition-colors font-mono text-sm text-muted-foreground hover:text-foreground cursor-default">
-                  <div className="h-2 w-2 rounded-full bg-indigo-500/50" />
-                  {ref}
-                </div>
+                <a
+                  key={idx}
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 rounded-lg border bg-card/50 hover:bg-card hover:border-primary/50 transition-colors font-mono text-sm text-muted-foreground hover:text-primary cursor-pointer group"
+                >
+                  <div className="h-2 w-2 rounded-full bg-indigo-500/50 group-hover:bg-indigo-500" />
+                  {ref.placeholder}
+                </a>
               ))}
             </div>
           </div>

@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "title": "Test",
+    "description": "",
+    "type": "FrontEnd",
+    "tags": []
+  },
+  "pages": [
+    {
+      "title": "Test page",
+      "purpose": "",
+      "page_notes": [],
+      "parent": ""
+    }
+  ]
+}

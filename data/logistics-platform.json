@@ -3,44 +3,62 @@
     "title": "Logistics Platform",
     "description": "Complete documentation for the Logistics Platform, including architecture, trip management, and entity modules.",
     "type": "FrontEnd",
-    "tags": ["React", "Typescript", "Zustand"]
+    "tags": [
+      "React",
+      "Typescript",
+      "Zustand"
+    ]
   },
   "pages": [
     {
       "title": "Overview",
       "purpose": "General introduction to the trip management system and its purpose and main capabilities",
       "references": [
-        "src/features/trips/TripManager.tsx",
-        "src/core/api/routes.ts"
+        {
+          "url": "src/features/trips/TripManager.tsx",
+          "placeholder": "Trip manager component"
+        },
+        {
+          "url": "src/core/api/routes.ts",
+          "placeholder": "API routes"
+        }
       ],
       "page_notes": [
         {
           "title": "Introduction",
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h2>Core Features</h2><ul><li>Real-time tracking of logistics assets</li><li>Comprehensive trip management workflows</li><li>Risk assessment powered by AI</li></ul><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h2>Core Features</h2><ul><li>Real-time tracking of logistics assets</li><li>Comprehensive trip management workflows</li><li>Risk assessment powered by AI</li></ul><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n![img 1.png](/uploads/1765484423177-img1.png)\n"
         },
         {
           "title": "Module Breakdown",
           "content": "<p>Below is a breakdown of the key modules involved in this overview.</p><ul><li><strong>Trip Engine</strong>: Handles state transitions.</li><li><strong>Monitoring Service</strong>: Polls GPS data.</li></ul>"
         }
-      ]
+      ],
+      "parent": ""
     },
     {
       "title": "System Architecture",
       "purpose": "Description of the overall architecture patterns, layers, and design decisions of the system",
       "references": [
-        "docs/architecture/diagrams/system-overview.png",
-        "src/infrastructure/db/schema.prisma"
+        {
+          "url": "docs/architecture/diagrams/system-overview.png",
+          "placeholder": "System overview diagram"
+        },
+        {
+          "url": "src/infrastructure/db/schema.prisma",
+          "placeholder": "Database schema"
+        }
       ],
       "page_notes": [
         {
           "title": "High-level Design",
-          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Client -> API Gateway -> Service Mesh -> Microservices -> Database"
+          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Client -> API Gateway -> Service Mesh -> Microservices -> Database\n![Cronograma.png](/uploads/1765484395057-Cronograma.png)\n"
         },
         {
-            "title": "Microservices Integration",
-            "content": "<p>The system is composed of multiple microservices communicating via gRPC and REST.</p>"
+          "title": "Microservices Integration",
+          "content": "<p>The system is composed of multiple microservices communicating via gRPC and REST.</p>"
         }
-      ]
+      ],
+      "parent": ""
     },
     {
       "title": "Domain Model",
@@ -48,7 +66,8 @@
       "parent": "System Architecture",
       "page_notes": [
         {
-          "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+          "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+          "title": ""
         }
       ]
     },
@@ -58,7 +77,8 @@
       "parent": "System Architecture",
       "page_notes": [
         {
-          "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+          "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+          "title": ""
         }
       ]
     },
@@ -68,7 +88,8 @@
       "parent": "System Architecture",
       "page_notes": [
         {
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "title": ""
         }
       ]
     },
@@ -78,7 +99,8 @@
       "parent": "System Architecture",
       "page_notes": [
         {
-          "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "title": ""
         }
       ]
     },
@@ -88,7 +110,8 @@
       "parent": "System Architecture",
       "page_notes": [
         {
-          "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+          "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+          "title": ""
         }
       ]
     },
@@ -96,18 +119,22 @@
       "title": "Trip Management System",
       "purpose": "Complete documentation of the trip management functionality, the most critical system in the application",
       "references": [
-          "src/domains/trip/TripService.ts"
+        {
+          "url": "src/domains/trip/TripService.ts",
+          "placeholder": "Trip service implementation"
+        }
       ],
       "page_notes": [
         {
-            "title": "Core Logic",
+          "title": "Core Logic",
           "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
         },
         {
-            "title": "State Machine",
-            "content": "<p>The trip state machine handles transitions from Draft -> Scheduled -> Active -> Completed.</p>"
+          "title": "State Machine",
+          "content": "<p>The trip state machine handles transitions from Draft -> Scheduled -> Active -> Completed.</p>"
         }
-      ]
+      ],
+      "parent": ""
     },
     {
       "title": "Trip Lifecycle and State Management",
@@ -115,7 +142,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+          "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+          "title": ""
         }
       ]
     },
@@ -125,7 +153,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+          "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
+          "title": ""
         }
       ]
     },
@@ -135,7 +164,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+          "title": ""
         }
       ]
     },
@@ -145,7 +175,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+          "title": ""
         }
       ]
     },
@@ -155,7 +186,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+          "content": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+          "title": ""
         }
       ]
     },
@@ -165,7 +197,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus."
+          "content": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+          "title": ""
         }
       ]
     },
@@ -175,7 +208,8 @@
       "parent": "Trip Management System",
       "page_notes": [
         {
-          "content": "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+          "content": "Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+          "title": ""
         }
       ]
     },
@@ -184,9 +218,11 @@
       "purpose": "Complete documentation of reusable UI components, patterns and style system",
       "page_notes": [
         {
-          "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+          "content": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+          "title": ""
         }
-      ]
+      ],
+      "parent": ""
     },
     {
       "title": "Modal System",
@@ -194,7 +230,8 @@
       "parent": "UI Component Library",
       "page_notes": [
         {
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "title": ""
         }
       ]
     },
@@ -204,7 +241,8 @@
       "parent": "UI Component Library",
       "page_notes": [
         {
-          "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "title": ""
         }
       ]
     },
@@ -214,7 +252,8 @@
       "parent": "UI Component Library",
       "page_notes": [
         {
-          "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "title": ""
         }
       ]
     },
@@ -224,7 +263,8 @@
       "parent": "UI Component Library",
       "page_notes": [
         {
-          "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "title": ""
         }
       ]
     },
@@ -234,7 +274,8 @@
       "parent": "UI Component Library",
       "page_notes": [
         {
-          "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+          "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+          "title": ""
         }
       ]
     },
@@ -243,9 +284,11 @@
       "purpose": "Documentation of CRUD operations for non-trip entities: vehicles, routes, containers, operators, devices, companies",
       "page_notes": [
         {
-          "content": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+          "content": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+          "title": ""
         }
-      ]
+      ],
+      "parent": ""
     },
     {
       "title": "Vehicle Management",
@@ -253,7 +296,8 @@
       "parent": "Entity Management Modules",
       "page_notes": [
         {
-          "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+          "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+          "title": ""
         }
       ]
     },
@@ -263,7 +307,8 @@
       "parent": "Entity Management Modules",
       "page_notes": [
         {
-          "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+          "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+          "title": ""
         }
       ]
     },
@@ -273,7 +318,8 @@
       "parent": "Entity Management Modules",
       "page_notes": [
         {
-          "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+          "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
+          "title": ""
         }
       ]
     },
@@ -283,7 +329,8 @@
       "parent": "Entity Management Modules",
       "page_notes": [
         {
-          "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          "content": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+          "title": ""
         }
       ]
     },
@@ -293,7 +340,8 @@
       "parent": "Entity Management Modules",
       "page_notes": [
         {
-          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+          "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+          "title": ""
         }
       ]
     },
@@ -302,9 +350,11 @@
       "purpose": "Detailed documentation of all state management patterns, stores and contexts",
       "page_notes": [
         {
-          "content": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
+          "content": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
+          "title": ""
         }
-      ]
+      ],
+      "parent": ""
     },
     {
       "title": "Zustand Store System",
@@ -312,7 +362,8 @@
       "parent": "State Management Deep Dive",
       "page_notes": [
         {
-          "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
+          "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+          "title": ""
         }
       ]
     },
@@ -322,7 +373,8 @@
       "parent": "State Management Deep Dive",
       "page_notes": [
         {
-          "content": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+          "content": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+          "title": ""
         }
       ]
     }

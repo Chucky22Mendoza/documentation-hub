@@ -1,6 +1,10 @@
-import { getAllProjectsMetadata } from '@/lib/docs';
+
+import { getAllProjectsMetadata } from '@/app/actions';
 import { ProjectList } from '@/components/project-list';
 import { Logo } from '@/components/logo';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
+import Link from 'next/link';
 
 export default async function HomePage() {
   const projects = await getAllProjectsMetadata();
@@ -8,7 +12,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-screen-2xl mx-auto flex h-16 items-center px-6">
+        <div className="max-w-screen-2xl mx-auto flex h-16 items-center px-6 justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-primary/10 rounded-lg">
               <Logo className="h-6 w-6 text-primary" />
@@ -17,6 +21,11 @@ export default async function HomePage() {
               Documentation Hub
             </div>
           </div>
+          <Link href="/editor">
+            <Button>
+              <Plus className="mr-2 h-4 w-4" /> Create Documentation
+            </Button>
+          </Link>
         </div>
       </header>
 

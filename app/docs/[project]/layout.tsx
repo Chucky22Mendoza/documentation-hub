@@ -1,4 +1,5 @@
-import { getProjectData, buildDocTree } from '@/lib/docs';
+import { getProjectData } from '@/app/actions';
+import { buildDocTree } from '@/lib/docs';
 import { DesktopSidebar, MobileSidebar } from '@/components/docs-sidebar';
 import { Logo } from '@/components/logo';
 import { notFound } from 'next/navigation';
@@ -33,7 +34,7 @@ export default async function DocsLayout({
           </div>
         </div>
       </header>
-      <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 px-4 md:px-8">
+      <div className="flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 px-4 md:px-8">
         <DesktopSidebar nodes={tree} projectName={params.project} />
         <main className="relative py-6 lg:gap-10 lg:py-8">
           {children}

@@ -2,7 +2,9 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ProjectSummary } from '@/lib/docs';
+import { useRouter } from 'next/navigation';
+import { ProjectSummary, PROJECT_TYPES } from '@/lib/docs';
+import { deleteProject } from '@/app/actions';
 import {
   Card,
   CardDescription,
@@ -14,7 +16,18 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Search, Filter } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
+import { Search, Filter, Edit, Trash2, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ProjectListProps {
@@ -22,18 +35,10 @@ interface ProjectListProps {
 }
 
 export function ProjectList({ initialProjects }: ProjectListProps) {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
-
-  // Static types definition
-  const types = [
-    'BackEnd',
-    'FrontEnd',
-    'DevOps',
-    'QA',
-    'Microservices',
-    'Technical specifications'
-  ];
+  const [projectToDelete, setProjectToDelete] = useState<{ slug: string; title: string } | null>(null);
 
   const filteredProjects = useMemo(() => {
     return initialProjects.filter(project => {
@@ -47,6 +52,26 @@ export function ProjectList({ initialProjects }: ProjectListProps) {
       return matchesSearch && matchesType;
     });
   }, [initialProjects, searchTerm, selectedType]);
+
+  const handleDelete = (e: React.MouseEvent, slug: string, title: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setProjectToDelete({ slug, title });
+  };
+
+  const confirmDelete = async () => {
+    if (projectToDelete) {
+      await deleteProject(projectToDelete.slug);
+      setProjectToDelete(null);
+      router.refresh();
+    }
+  };
+
+  const handleEdit = (e: React.MouseEvent, slug: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    router.push(`/editor/${slug}`);
+  };
 
   return (
     <div>
@@ -75,7 +100,7 @@ export function ProjectList({ initialProjects }: ProjectListProps) {
             >
               All
             </Badge>
-            {types.map(type => (
+            {PROJECT_TYPES.map(type => (
               <Badge
                 key={type}
                 variant={selectedType === type ? "default" : "outline"}
@@ -105,7 +130,7 @@ export function ProjectList({ initialProjects }: ProjectListProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-in fade-in-50 slide-in-from-bottom-5 duration-500">
           {filteredProjects.map((project) => (
             <Link key={project.slug} href={`/docs/${project.slug}`} className="group block h-full">
-              <Card className="h-full hover:shadow-2xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 bg-card/50 backdrop-blur-sm flex flex-col">
+              <Card className="h-full hover:shadow-2xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 bg-card/50 backdrop-blur-sm flex flex-col relative overflow-hidden">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <Badge variant="secondary" className="text-xs font-normal bg-primary/10 text-primary border-primary/20">
@@ -135,14 +160,45 @@ export function ProjectList({ initialProjects }: ProjectListProps) {
                     </div>
                   )}
                 </CardContent>
-                <CardFooter className="pt-0 pb-6 text-xs font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                  View Documentation &rarr;
+                <CardFooter className="p-4 flex items-center justify-between gap-4 border-t bg-muted/20 mt-auto">
+                  <div className="text-xs font-medium text-primary flex items-center gap-1 py-2">
+                    <Eye className="w-3 h-3" /> View
+                  </div>
+                  <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Button size="icon" variant="ghost" className="h-8 w-8 hover:bg-background" onClick={(e) => handleEdit(e, project.slug)}>
+                      <Edit className="w-4 h-4 text-muted-foreground hover:text-primary" />
+                    </Button>
+                    <Button size="icon" variant="ghost" className="h-8 w-8 hover:bg-background hover:text-destructive" onClick={(e) => handleDelete(e, project.slug, project.title)}>
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </CardFooter>
               </Card>
             </Link>
           ))}
         </div>
       )}
+
+      <AlertDialog open={!!projectToDelete} onOpenChange={(open) => !open && setProjectToDelete(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>¿Estás seguro de eliminar esta documentación?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Esta acción no se puede deshacer. Se eliminará permanentemente la documentación de{' '}
+              <span className="font-semibold text-foreground">"{projectToDelete?.title}"</span> y todos sus datos asociados.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={confirmDelete}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Eliminar
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

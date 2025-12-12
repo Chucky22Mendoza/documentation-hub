@@ -1,16 +1,19 @@
-import fs from 'fs/promises';
-import path from 'path';
-
+// Type definitions and interfaces
 export interface PageNote {
   title?: string;
   content: string;
+}
+
+export interface Reference {
+  url: string;
+  placeholder: string;
 }
 
 export interface DocPage {
   title: string;
   purpose: string;
   parent?: string;
-  references?: string[];
+  references?: Reference[];
   page_notes: PageNote[];
 }
 
@@ -26,8 +29,24 @@ export interface DocProject {
   pages: DocPage[];
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+export interface ProjectSummary {
+  slug: string;
+  title: string;
+  description: string;
+  type: string;
+  tags: string[];
+}
 
+export const PROJECT_TYPES = [
+  'BackEnd',
+  'FrontEnd',
+  'DevOps',
+  'QA',
+  'Microservices',
+  'Technical specifications'
+];
+
+// Pure utility function (no Node.js APIs)
 export const slugify = (text: string) => {
   return text
     .toString()
@@ -37,59 +56,6 @@ export const slugify = (text: string) => {
     .replace(/[^\w\-]+/g, '') // Remove all non-word chars
     .replace(/\-\-+/g, '-');  // Replace multiple - with single -
 };
-
-export async function getProjects(): Promise<string[]> {
-  try {
-    const files = await fs.readdir(DATA_DIR);
-    return files
-      .filter((file) => file.endsWith('.json'))
-      .map((file) => file.replace('.json', ''));
-  } catch (error) {
-    console.error("Error reading data directory:", error);
-    return [];
-  }
-}
-
-export interface ProjectSummary {
-  slug: string;
-  title: string;
-  description: string;
-  type: string;
-  tags: string[];
-}
-
-export async function getAllProjectsMetadata(): Promise<ProjectSummary[]> {
-  try {
-    const slugs = await getProjects();
-    const projects = await Promise.all(slugs.map(async (slug) => {
-      const data = await getProjectData(slug);
-      if (!data) return null;
-
-      return {
-        slug,
-        title: data.metadata?.title || slug.replace(/[-_]/g, ' '),
-        description: data.metadata?.description || `Documentation for ${slug}`,
-        type: data.metadata?.type || 'General',
-        tags: data.metadata?.tags || []
-      };
-    }));
-    return projects.filter((p): p is ProjectSummary => p !== null);
-  } catch (error) {
-    console.error("Error getting all projects metadata:", error);
-    return [];
-  }
-}
-
-export async function getProjectData(projectId: string): Promise<DocProject | null> {
-  try {
-    const filePath = path.join(DATA_DIR, `${projectId}.json`);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    return JSON.parse(fileContent);
-  } catch (error) {
-    console.error(`Error reading doc file for ${projectId}:`, error);
-    return null;
-  }
-}
 
 export interface DocNode extends DocPage {
   slug: string;
