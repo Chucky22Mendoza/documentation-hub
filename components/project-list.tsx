@@ -185,7 +185,7 @@ export function ProjectList({ initialProjects }: ProjectListProps) {
             <AlertDialogTitle>¿Estás seguro de eliminar esta documentación?</AlertDialogTitle>
             <AlertDialogDescription>
               Esta acción no se puede deshacer. Se eliminará permanentemente la documentación de{' '}
-              <span className="font-semibold text-foreground">"{projectToDelete?.title}"</span> y todos sus datos asociados.
+              <span className="font-semibold text-foreground">{`"${projectToDelete?.title}"`}</span> y todos sus datos asociados.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
