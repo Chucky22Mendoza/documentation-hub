@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Trash2, Plus, Image as ImageIcon, Save, ArrowLeft } from 'lucide-react';
+import { ModeToggle } from '@/components/mode-toggle';
 
 // Form Types
 type FormValues = DocProject;
@@ -79,16 +80,26 @@ export function DocForm({ initialData, slug }: DocFormProps) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 max-w-5xl mx-auto pb-20">
       {/* Header / Actions */}
-      <div className="flex items-center justify-between sticky top-0 bg-background/95 backdrop-blur z-40 p-4 border-b rounded-b-lg mb-6">
-        <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm" type="button" onClick={() => router.back()}>
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back
+      <div className="flex items-center justify-between sticky top-0 bg-background/95 backdrop-blur z-40 p-3 md:p-4 border-b rounded-b-lg mb-6 gap-2">
+        <div className="flex items-center gap-2 md:gap-4">
+          <Button variant="outline" size="sm" type="button" onClick={() => router.back()} className="px-2 md:px-3">
+            <ArrowLeft className="w-4 h-4 md:mr-2" /> <span className="hidden md:inline">Back</span>
           </Button>
-          <h1 className="text-2xl font-bold">{slug ? 'Edit Documentation' : 'Create Documentation'}</h1>
+          <h1 className="text-lg md:text-2xl font-bold truncate">{slug ? 'Edit Documentation' : 'Create Documentation'}</h1>
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Saving...' : <><Save className="w-4 h-4 mr-2" /> Save Project</>}
-        </Button>
+        <div className="flex items-center gap-1 md:gap-2 shrink-0">
+          <ModeToggle />
+          <Button type="submit" disabled={isSubmitting} size="sm" className="md:h-10">
+            {
+              isSubmitting
+                ? 'Saving...'
+                : <>
+                  <Save className="w-4 h-4 md:mr-2" />
+                  <span className="hidden md:inline">Save Project</span>
+                </>
+            }
+          </Button>
+        </div>
       </div>
 
       {/* Metadata Section */}

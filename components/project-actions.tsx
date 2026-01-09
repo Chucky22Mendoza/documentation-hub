@@ -48,19 +48,19 @@ export function ProjectActions({ slug }: { slug: string }) {
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>¿Estás seguro de eliminar esta documentación?</AlertDialogTitle>
+            <AlertDialogTitle>¿Are you sure you want to delete this documentation?</AlertDialogTitle>
             <AlertDialogDescription>
-              Esta acción no se puede deshacer. Se eliminará permanentemente la documentación de{' '}
-              <span className="font-semibold text-foreground">{`"${slug}"`}</span> y todos sus datos asociados.
+              This action cannot be undone. The documentation of{' '}
+              <span className="font-semibold text-foreground">{`"${slug}"`}</span> and all associated data will be permanently deleted.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={confirmDelete}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
-              Eliminar
+              Delete
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

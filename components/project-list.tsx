@@ -75,7 +75,7 @@ export function ProjectList({ initialProjects }: ProjectListProps) {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row gap-6 mb-10 items-end md:items-center justify-between">
+      <div className="flex flex-col md:flex-row gap-6 mb-10 items-start md:items-center justify-between">
         <div className="w-full md:w-1/3 space-y-2">
           <Label htmlFor="search" className="text-sm font-medium text-muted-foreground">Search Documentation</Label>
           <div className="relative">
